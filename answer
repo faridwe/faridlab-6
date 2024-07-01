@@ -1,0 +1,35 @@
+public class MySixthApp {
+    public static void main(String[] args) {
+        int n = 20; // Faktöriyel hesaplamak için örnek sayı
+
+        long startTime = System.nanoTime();
+        long factorialIter = factorialIterative(n);
+        long endTime = System.nanoTime();
+        long durationIter = endTime - startTime;
+        System.out.println("Iterative Factorial of " + n + " is " + factorialIter);
+        System.out.println("Time taken by iterative method: " + durationIter + " nanoseconds");
+
+        startTime = System.nanoTime();
+        long factorialRec = factorialRecursive(n);
+        endTime = System.nanoTime();
+        long durationRec = endTime - startTime;
+        System.out.println("Recursive Factorial of " + n + " is " + factorialRec);
+        System.out.println("Time taken by recursive method: " + durationRec + " nanoseconds");
+    }
+
+    public static long factorialIterative(int n) {
+        long result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    public static long factorialRecursive(int n) {
+        if (n == 0) {
+            return 1;
+        } else {
+            return n * factorialRecursive(n - 1);
+        }
+    }
+}
